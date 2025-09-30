@@ -1,0 +1,42 @@
+<Page
+    navigatingTo="onNavigatingTo"
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:picker="@nativescript/picker">
+
+    <ActionBar>
+        <NavigationButton visibility="hidden"></NavigationButton>
+        <GridLayout columns="50, *">
+            <Label class="action-bar-title" text="Home" colSpan="2"/>
+            <Label class="fas" text="&#xf0c9;" tap="onDrawerButtonTap"/>
+        </GridLayout>
+    </ActionBar>
+
+    <GridLayout class="page__content">
+      <StackLayout>
+        <picker:PickerField
+          row="0"
+          hint="Pilih Mata Uang"
+          focusOnShow="false"
+          filterKeyName="country"
+          showFilter="true"
+          pickerTitle="Daftar Mata Uang"
+          rowHeight="65"
+          hintText="Ketik untuk mencari..."
+          textField="composite"
+          valueField="country"
+          items="{{ currency_items }}"
+          pickerClosed="onSelectedItem"
+          androidCloseButtonIcon="tutup"
+          >
+          <picker:PickerField.itemTemplate>
+            <GridLayout rows="auto, auto, auto">
+              <Label text="{{ currency + ' (' + symbol + ')' }}" row="0" class="ubuntu-bold" textWrap="true" verticalAlignment="center" />
+              <Label text="{{ country }}" row="1" class="ubuntu" textWrap="true" verticalAlignment="center" />
+            </GridLayout>
+          </picker:PickerField.itemTemplate>
+        </picker:PickerField>
+
+        <Button text="open bottom sheet" tap="openBottomSheet" class="mt-5" />
+      </StackLayout>
+    </GridLayout>
+</Page>

@@ -1,0 +1,12 @@
+<Page 
+  loaded="onLoaded"
+  xmlns="http://schemas.nativescript.org/tns.xsd" 
+  actionBarHidden="true">
+
+  <GridLayout>
+      <StackLayout>
+        <Label text="Bottom Sheet View" class="h1" />
+        <Button text="close" tap="{{ close}}" class="mt-3" />
+      </StackLayout>
+  </GridLayout>
+</Page>
